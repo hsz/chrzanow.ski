@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Header, Links, Projects, Experiences } from 'containers';
+import background from './assets/background.jpg';
+
+const Wrapper = styled.section`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background: url(${background}) center;
+`;
+
+class App extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <Header />
+        <Links />
+        <Projects />
+        <Experiences />
+      </Wrapper>
+    );
+  }
+}
+
+export default App;
