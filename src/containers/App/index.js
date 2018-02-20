@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header, Links, Projects, Experiences } from 'containers';
+import { Header, Socials, Projects, Experiences } from 'containers';
 import background from './assets/background.jpg';
 
 const Wrapper = styled.section`
@@ -16,9 +16,9 @@ const Wrapper = styled.section`
 class App extends Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper className="ibm">
         <Header />
-        <Links />
+        <Socials />
         <Projects />
         <Experiences />
       </Wrapper>
