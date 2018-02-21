@@ -9,7 +9,6 @@ import solid from '@fortawesome/fontawesome-free-solid';
 
 import 'normalize.css';
 import '@ibm/type/css/ibm-type.min.css';
-import 'antd/dist/antd.css';
 
 fontawesome.library.add(brands, solid);
 

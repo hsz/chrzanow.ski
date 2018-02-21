@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Avatar, List } from 'antd';
-import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 const data = [
@@ -36,10 +35,6 @@ const data = [
   },
 ];
 
-const White = styled.div`
-  color: #fff;
-`;
-
 class Socials extends Component {
   onItemClick = (url) => {
     window.location = url;
@@ -58,8 +53,8 @@ class Socials extends Component {
                   <FontAwesomeIcon icon={icon} size="lg" />
                 </Avatar>
               }
-              title={<White>{name}</White>}
-              description={<White>{description}</White>}
+              title={name}
+              description={description}
             />
           </List.Item>
         )}
