@@ -14,7 +14,7 @@ import 'antd/dist/antd.css';
 fontawesome.library.add(brands, solid);
 
 injectGlobal`
-  body, html, #root {
+  body, html {
     height: 100%;
   }
 `;

@@ -8,9 +8,8 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-size: cover;
-  background: url(${background}) center;
+  background: url(${background}) fixed center;
 `;
 
 class App extends Component {
