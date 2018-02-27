@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from 'containers';
+import App from 'containers/App';
 import { injectGlobal } from 'styled-components';
 import registerServiceWorker from './registerServiceWorker';
 import fontawesome from '@fortawesome/fontawesome';

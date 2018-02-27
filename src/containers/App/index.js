@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import { Header, Socials, Projects, Experiences } from 'containers';
+import styled from 'styled-components';
 import background from './assets/background.jpg';
 
-const Wrapper = styled.section`
+const Wrapper = styled.main`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -12,17 +12,23 @@ const Wrapper = styled.section`
   background: url(${background}) fixed center;
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <Wrapper className="ibm">
-        <Header />
-        <Socials />
-        <Projects />
-        <Experiences />
-      </Wrapper>
-    );
-  }
-}
+const StyledProjects = styled(Projects)`
+  background-color: rgba(0, 0, 0, .25);
+  padding: 1rem;
+`;
+
+const StyledExperiences = styled(Experiences)`
+  background-color: rgba(0, 0, 0, .5);
+  padding: 1rem;
+`;
+
+const App = () => (
+  <Wrapper className="ibm">
+    <Header />
+    <Socials />
+    <StyledProjects />
+    <StyledExperiences />
+  </Wrapper>
+);
 
 export default App;

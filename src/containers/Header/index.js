@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import logo from './assets/logo.png';
+import styled from 'styled-components';
 
-class Header extends Component {
-  render() {
-    return (
-      <section>
-        <strong>hsz</strong>
-        <div>Jakub Chrzanowski</div>
-      </section>
-    );
-  }
-}
+const Logo = styled.img`
+  display: block;
+  margin: 0 auto;
+`;
 
-Header.propTypes = {};
+const Name = styled.h1`
+  margin: 0 auto 1rem;
+  font-weight: 600;
+`;
+
+const Header = () => (
+  <section>
+    <Logo src={logo} alt="hsz" />
+    <Name>Jakub Chrzanowski</Name>
+  </section>
+);
 
 export default Header;
