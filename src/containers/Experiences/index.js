@@ -106,7 +106,7 @@ const Description = styled.div`
 
 const Tags = styled.div`
   .ant-tag {
-    margin: .1rem;
+    margin: .2rem;
   }
 `;
 
