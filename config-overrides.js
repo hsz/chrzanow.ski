@@ -10,6 +10,7 @@ module.exports = function override(config, env) {
 
   config = rewireLess.withLoaderOptions({
     modifyVars: {
+      // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
       '@component-background': 'transparent',
       '@heading-color': 'fade(#fff, 95%)',
       '@text-color': 'fade(#fff, 85%)',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Avatar, List } from 'antd';
+import { Row, Col, Tooltip } from 'antd';
+import { media } from 'utils';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
@@ -14,21 +15,21 @@ const data = [
   {
     name: 'StackOverflow',
     alias: 'hsz',
-    description: 'Over 91k reputation with 480+ badges',
+    description: '~100k reputation with 500+ badges',
     url: 'https://stackoverflow.com/users/223386/hsz',
     icon: ['fab', 'stack-overflow'],
   },
   {
     name: 'LinkedIn',
     alias: 'chrzanowski',
-    description: 'Currently at Meelogic',
-    url: 'https://linkedin.com/in/chrzanowski',
+    description: 'Business oriented social network!',
+    url: 'https://www.linkedin.com/in/chrzanowski/',
     icon: ['fab', 'linkedin'],
   },
   {
     name: 'Twitter',
     alias: '@hszanowski',
-    description: 'You can follow, I\'m not flooding',
+    description: 'Follow me!',
     url: 'https://twitter.com/hszanowski',
     icon: ['fab', 'twitter'],
   },
@@ -41,15 +42,44 @@ const data = [
   },
 ];
 
-const StyledInfo = styled(({ className, name, alias }) => (
+const StyledRow = styled(Row)`
+  svg {
+    display: block;
+    margin: .5rem auto;
+    cursor: pointer;
+    font-size: 2rem;
+    
+    &:hover {
+      opacity: .3;
+    }
+    
+    ${media.greaterThan('sm')`
+      font-size: 3rem;
+    `}
+  }
+`;
+
+const Content = styled(({ className, name, alias, description }) => (
   <div className={className}>
-    {name}
+    <strong>{name}</strong>
     <small>{alias}</small>
+    <p>{description}</p>
   </div>
 ))`
+  cursor: pointer;
+
   small {
     padding-left: .5rem;
     opacity: .5;
+  }
+  
+  p {
+    margin: 0;
+    font-size: .75rem;
+    
+    ${media.lessThan('sm')`
+      margin-bottom: 1rem;
+    `}
   }
 `;
 
@@ -62,24 +92,23 @@ class Socials extends Component {
     const { className } = this.props;
 
     return (
-      <List
-        className={className}
-        itemLayout="horizontal"
-        dataSource={data}
-        renderItem={({ icon, name, alias, description, url }) => (
-          <List.Item onClick={() => this.onItemClick(url)}>
-            <List.Item.Meta
-              avatar={
-                <Avatar style={{ backgroundColor: 'transparent' }}>
-                  <FontAwesomeIcon icon={icon} size="lg" />
-                </Avatar>
-              }
-              title={<StyledInfo name={name} alias={alias} />}
-              description={description}
-            />
-          </List.Item>
-        )}
-      />
+      <StyledRow className={className} gutter={{ sm: 48 }} justify="end ">
+        {data.map((item) => {
+          const { icon, url } = item;
+          const onClick = () => this.onItemClick(url);
+
+          return [
+            <Col xs={6} sm={Math.floor(24 / 5)} onClick={onClick}>
+              <Tooltip placement="bottom" title={<Content {...item} />}>
+                <FontAwesomeIcon icon={icon} />
+              </Tooltip>
+            </Col>,
+            <Col xs={18} sm={0} onClick={onClick}>
+              <Content {...item} />
+            </Col>,
+          ];
+        })}
+      </StyledRow>
     );
   }
 }

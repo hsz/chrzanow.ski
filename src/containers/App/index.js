@@ -9,23 +9,22 @@ const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   background-size: cover;
-  background: url(${background}) fixed center;
+  background: url(${background}) fixed top;
 `;
 
-const StyledProjects = styled(Projects)`
-  background-color: rgba(0, 0, 0, .25);
+const StyledSection = (Component, opacity = 0) => styled(Component)`
+  background-color: rgba(0, 0, 0, ${opacity});
   padding: 1rem;
 `;
 
-const StyledExperiences = styled(Experiences)`
-  background-color: rgba(0, 0, 0, .5);
-  padding: 1rem;
-`;
+const StyledSocials = StyledSection(Socials);
+const StyledProjects = StyledSection(Projects, .25);
+const StyledExperiences = StyledSection(Experiences, .5);
 
 const App = () => (
   <Wrapper className="ibm">
     <Header />
-    <Socials />
+    <StyledSocials />
     <StyledProjects />
     <StyledExperiences />
   </Wrapper>
