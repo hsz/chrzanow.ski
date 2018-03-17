@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Col, Tooltip } from 'antd';
+import { List, Tooltip } from 'antd';
 import { media } from 'utils';
-import styled from 'styled-components';
+import glamorous from 'glamorous';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 const data = [
@@ -42,75 +42,78 @@ const data = [
   },
 ];
 
-const StyledRow = styled(Row)`
-  svg {
-    display: block;
-    margin: .5rem auto;
-    cursor: pointer;
-    font-size: 2rem;
-    
-    &:hover {
-      opacity: .3;
-    }
-    
-    ${media.greaterThan('sm')`
-      font-size: 3rem;
-    `}
-  }
-`;
+const StyledList = glamorous(List)({
+  width: '100%',
 
-const Content = styled(({ className, name, alias, description }) => (
+  '& .ant-list-item-content': {
+    alignItems: 'center',
+  },
+
+  '& .ant-spin-container': {
+    justifyContent: 'center',
+  },
+
+  [media.sm]: {
+    '& .ant-spin-container': {
+      display: 'flex',
+    },
+    '& .ant-list-item': {
+      borderBottom: 'none !important',
+    },
+  },
+});
+
+const Icon = glamorous(FontAwesomeIcon)({
+  fontSize: '2rem',
+  cursor: 'pointer',
+
+  [media.sm]: {
+    fontSize: '3rem',
+    margin: '1rem 2rem',
+  },
+});
+
+
+const Content = glamorous(({ className, name, alias, description }) => (
   <div className={className}>
     <strong>{name}</strong>
     <small>{alias}</small>
     <p>{description}</p>
   </div>
-))`
-  cursor: pointer;
+))(({ mobileOnly }) => ({
+  cursor: 'pointer',
+  padding: '0 1rem',
 
-  small {
-    padding-left: .5rem;
-    opacity: .5;
-  }
-  
-  p {
-    margin: 0;
-    font-size: .75rem;
-    
-    ${media.lessThan('sm')`
-      margin-bottom: 1rem;
-    `}
-  }
-`;
+  '& > small': {
+    padding: '0 .5rem',
+    opacity: .5,
+  },
 
-class Socials extends Component {
-  onItemClick = (url) => {
-    window.location = url;
-  };
+  '& > p': {
+    margin: 0,
+  },
 
-  render() {
-    const { className } = this.props;
+  [media.sm]: mobileOnly ? {
+    display: 'none',
+  } : {},
+}));
 
-    return (
-      <StyledRow className={className} gutter={{ sm: 48 }} justify="end ">
-        {data.map((item) => {
-          const { icon, url } = item;
-          const onClick = () => this.onItemClick(url);
-
-          return [
-            <Col xs={6} sm={Math.floor(24 / 5)} onClick={onClick}>
-              <Tooltip placement="bottom" title={<Content {...item} />}>
-                <FontAwesomeIcon icon={icon} />
-              </Tooltip>
-            </Col>,
-            <Col xs={18} sm={0} onClick={onClick}>
-              <Content {...item} />
-            </Col>,
-          ];
-        })}
-      </StyledRow>
-    );
-  }
-}
+const Socials = ({ className }) => (
+  <StyledList
+    className={className}
+    dataSource={data}
+    itemLayout="horizontal"
+    renderItem={item => (
+      <List.Item key={item.name} onClick={() => {
+        window.location = item.url;
+      }}>
+        <Tooltip placement="bottom" title={<Content {...item} />}>
+          <Icon icon={item.icon} />
+        </Tooltip>
+        <Content mobileOnly {...item} />
+      </List.Item>
+    )}
+  />
+);
 
 export default Socials;

@@ -1,12 +1,9 @@
-import { generateMedia } from 'styled-media-query';
-
-export const breakpoints = {
-  xs: '480px',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-  xxl: '1600px',
+export default {
+  xs: '@media (min-width: 480px)',
+  sm: '@media (min-width: 576px)',
+  md: '@media (min-width: 768px)',
+  lg: '@media (min-width: 992px)',
+  xl: '@media (min-width: 1200px)',
+  xxl: '@media (min-width: 1600px)',
 };
 
-export default generateMedia(breakpoints);
