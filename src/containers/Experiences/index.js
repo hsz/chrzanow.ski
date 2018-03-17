@@ -1,9 +1,11 @@
 import React from 'react';
-import { Divider, Tag, Timeline } from 'antd';
+import { Tag, Timeline } from 'antd';
+import { Divider } from 'components';
 import { flatMap } from 'lodash';
 import styled from 'styled-components';
 import moment from 'moment';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { colors } from 'utils';
 
 const data = [
   {
@@ -12,8 +14,8 @@ const data = [
     description: 'Web and Android development. Managing a team of developers and testers, technical leader and recruiter.',
     icon: <FontAwesomeIcon icon="spinner" spin />,
     tags: {
-      gold: ['pm', 'tech lead', 'developer'],
-      lime: ['web', 'mobile', 'security', 'api'],
+      blue: ['pm', 'tech lead', 'developer'],
+      yellow: ['web', 'mobile', 'security', 'api'],
       green: ['nodejs', 'react', 'php', 'sql', 'java', 'android'],
       orange: ['aws', 'jira', 'git', 'jenkins'],
     },
@@ -24,8 +26,8 @@ const data = [
     description: 'Owner, freelancer, JetBrains plugins development.',
     icon: <FontAwesomeIcon icon="spinner" spin />,
     tags: {
-      gold: ['owner', 'developer'],
-      lime: ['web', 'raspberry pi', 'security', 'aws', 'api'],
+      blue: ['owner', 'developer'],
+      yellow: ['web', 'raspberry pi', 'security', 'aws', 'api'],
       green: ['nodejs', 'react', 'sql', 'java', 'kotlin', 'symfony2'],
       orange: ['git', 'travis', 'aws'],
     },
@@ -36,8 +38,8 @@ const data = [
     description: 'Managing a team of programmers. Planning and realization of websites and internal applications for managing the company.',
     icon: <FontAwesomeIcon icon="briefcase" />,
     tags: {
-      gold: ['pm', 'tech lead', 'developer'],
-      lime: ['web'],
+      blue: ['pm', 'tech lead', 'developer'],
+      yellow: ['web'],
       green: ['php', 'symfony2', 'sass'],
       orange: ['git', 'wordpress'],
     },
@@ -48,8 +50,8 @@ const data = [
     description: 'Planning and development of Android applications with WebServices in Java.',
     icon: <FontAwesomeIcon icon="briefcase" />,
     tags: {
-      gold: ['developer'],
-      lime: ['mobile', 'api'],
+      blue: ['developer'],
+      yellow: ['mobile', 'api'],
       green: ['java', 'j2ee'],
       orange: ['git'],
     },
@@ -60,8 +62,8 @@ const data = [
     description: 'Implementation of projects based on the Android platform and J2EE in Java and jQuery, CSS.',
     icon: <FontAwesomeIcon icon="briefcase" />,
     tags: {
-      gold: ['developer'],
-      lime: ['web', 'mobile'],
+      blue: ['developer'],
+      yellow: ['web', 'mobile'],
       green: ['java', 'j2ee', 'android'],
       orange: ['git', 'svn'],
     },
@@ -72,8 +74,8 @@ const data = [
     description: 'CMS system development for websites based on Zend Framework in PHP.',
     icon: <FontAwesomeIcon icon="briefcase" />,
     tags: {
-      gold: ['developer'],
-      lime: ['web'],
+      blue: ['developer'],
+      yellow: ['web'],
       green: ['php', 'zend framework', 'jquery'],
       orange: ['svn'],
     },
@@ -110,11 +112,6 @@ const Tags = styled.div`
   }
 `;
 
-const StyledTag = styled(Tag)`
-  background-color: transparent;
-  opacity: .5;
-`;
-
 const Experiences = ({ className }) => (
   <div className={className}>
     <Divider dashed>Timeline</Divider>
@@ -129,7 +126,7 @@ const Experiences = ({ className }) => (
           {flatMap(tags, ((values, color) => (
             <Tags key={color}>
               {values.map(tag =>
-                <StyledTag color={color} key={tag}>{tag}</StyledTag>
+                <Tag color={colors[color]} key={tag}>{tag}</Tag>
               )}
             </Tags>
           )))}

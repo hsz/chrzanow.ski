@@ -1,6 +1,7 @@
 import React from 'react';
-import { Divider, List, Icon, Tag } from 'antd';
-import styled from 'styled-components';
+import { List, Icon, Tag } from 'antd';
+import { Divider } from 'components';
+import { colors } from 'utils';
 
 const data = [
   {
@@ -47,11 +48,6 @@ const IconText = ({ type, text }) => (
   </span>
 );
 
-const StyledTag = styled(Tag)`
-  background-color: transparent;
-  opacity: .5;
-`;
-
 const Projects = ({ className }) => (
   <div className={className}>
     <Divider dashed>Projects</Divider>
@@ -65,9 +61,7 @@ const Projects = ({ className }) => (
           actions={[
             <IconText type="star-o" text={stars} />,
             <div>
-              {tags.map(tag => (
-                <StyledTag color="green" key={tag}>{tag}</StyledTag>
-              ))}
+              {tags.map(tag => <Tag key={tag} color={colors.blue}>{tag}</Tag>)}
             </div>,
           ]}
         >
