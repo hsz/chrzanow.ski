@@ -5,7 +5,8 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "deploy": "npm run build && git-directory-deploy --directory build/"
+    "analyzer": "ANALYZER=true react-app-rewired build",
+    "deploy": "git-directory-deploy --directory build/"
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
