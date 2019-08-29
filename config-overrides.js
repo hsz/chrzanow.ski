@@ -1,8 +1,6 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { addBabelPlugin, override, addLessLoader } = require('customize-cra');
 
-const PRODUCTION = process.env.NODE_ENV === 'production';
-
 module.exports = override(
   addBabelPlugin(['babel-plugin-emotion', { sourceMap: true, autoLabel: true }]),
   addBabelPlugin([
@@ -27,6 +25,6 @@ module.exports = override(
   }),
   config => ({
     ...config,
-    plugins: config.plugins.concat([...(PRODUCTION ? [new BundleAnalyzerPlugin()] : [])]),
+    plugins: config.plugins.concat([...(process.env.ANALYZER ? [new BundleAnalyzerPlugin()] : [])]),
   }),
 );
