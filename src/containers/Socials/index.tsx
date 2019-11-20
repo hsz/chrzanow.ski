@@ -11,32 +11,40 @@ interface Social {
   icon: ReactNode;
 }
 
-const Content = styled.div`
+const StyledListItem = styled(List.Item)`
   cursor: pointer;
-  padding-left: 1rem;
+  padding: 0;
 
-  & > small {
-    padding: 0 0.5rem;
-    opacity: 0.5;
-  }
-
-  & > p {
-    margin: 0;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `;
 
 const StyledIcon = styled(Icon)`
   font-size: 2rem;
+  padding-right: 1rem;
 `;
 
-const StyledListItem = styled(List.Item)`
+const Content = styled.a`
   cursor: pointer;
+  color: inherit;
   padding: 1rem;
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    color: inherit;
+  }
+
+  small {
+    padding: 0 0.5rem;
+    opacity: 0.5;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
@@ -51,7 +59,7 @@ const data: Social[] = [
   {
     name: 'StackOverflow',
     alias: 'hsz',
-    description: '110k+ reputation with 500+ badges',
+    description: '125k+ reputation with 500+ badges',
     url: 'https://stackoverflow.com/users/223386/hsz',
     icon: <StyledIcon component={StackOverflow} />,
   },
@@ -83,12 +91,14 @@ const Socials = () => (
     dataSource={data}
     itemLayout="horizontal"
     renderItem={item => (
-      <StyledListItem key={item.name} onClick={() => (window.location.href = item.url)}>
-        {item.icon}
-        <Content>
-          <strong>{item.name}</strong>
-          <small>{item.alias}</small>
-          <p>{item.description}</p>
+      <StyledListItem key={item.name}>
+        <Content href={item.url}>
+          {item.icon}
+          <div>
+            <strong>{item.name}</strong>
+            <small>{item.alias}</small>
+            <p>{item.description}</p>
+          </div>
         </Content>
       </StyledListItem>
     )}
