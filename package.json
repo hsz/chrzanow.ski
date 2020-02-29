@@ -13,9 +13,8 @@
     "@emotion/styled": "^10.0.27",
     "@ibm/type": "^0.5.4",
     "antd": "^3.26.12",
+    "dayjs": "^1.8.21",
     "facepaint": "^1.2.1",
-    "glamor": "^2.20.40",
-    "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "^3.4.0"

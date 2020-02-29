@@ -1,23 +1,27 @@
-import { Divider, Icon, Tag, Timeline } from 'antd';
-import moment from 'moment';
-import React, { ReactNode } from 'react';
-import { Colors, styled } from 'utils';
+import {Divider, Icon, Tag, Timeline} from 'antd';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import React, {ReactNode} from 'react';
+import {Colors, styled} from 'utils';
 
-type DatePair = [number, number];
+dayjs.extend(customParseFormat);
+dayjs.extend(relativeTime);
 
 interface Experience {
   name: string;
   date: {
-    from: DatePair;
-    to?: DatePair;
+    from: string;
+    to?: string;
   };
   description: string;
   icon: ReactNode;
   tags: { [key in Colors]?: string[] };
 }
 
-const duration = (from: DatePair, to: DatePair) => moment(from).from(moment(to), true);
-const ago = (to: DatePair, suffix = true) => moment(to).fromNow(!suffix);
+const format = 'YYYY.MM';
+const duration = (from: string, to: string) => dayjs(from, format).from(dayjs(to, format));
+const ago = (to: string, suffix = true) => dayjs(to, format).fromNow(!suffix);
 
 const StyledTimelineItem = styled(Timeline.Item)`
   .ant-timeline-item-tail {
@@ -60,9 +64,9 @@ const Tags = styled.div`
 const data: Experience[] = [
   {
     name: 'Meelogic',
-    date: { from: [2014, 7] },
+    date: {from: '2014.07'},
     description: 'Web and Android development. Technical leader, architect and recruiter.',
-    icon: <StyledIcon type="loading" spin />,
+    icon: <StyledIcon type="loading" spin/>,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
@@ -72,9 +76,9 @@ const data: Experience[] = [
   },
   {
     name: 'HSZ',
-    date: { from: [2013, 2] },
+    date: {from: '2013.02'},
     description: 'Owner, freelancer, JetBrains plugins development.',
-    icon: <StyledIcon type="loading" spin />,
+    icon: <StyledIcon type="loading" spin/>,
     tags: {
       [Colors.blue]: ['owner', 'developer'],
       [Colors.yellow]: ['web', 'raspberry pi', 'security', 'aws', 'api'],
@@ -84,10 +88,10 @@ const data: Experience[] = [
   },
   {
     name: 'Freedomes',
-    date: { from: [2012, 11], to: [2014, 6] },
+    date: {from: '2012.11', to: '2014.06'},
     description:
       'PM, Technical leader. Websites and internal applications development for managing the company.',
-    icon: <StyledIcon type="idcard" />,
+    icon: <StyledIcon type="idcard"/>,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web'],
@@ -97,9 +101,9 @@ const data: Experience[] = [
   },
   {
     name: 'SB Betting Software',
-    date: { from: [2012, 7], to: [2012, 10] },
+    date: {from: '2012.07', to: '2012.10'},
     description: 'Planning and development of Android applications with WebServices in Java.',
-    icon: <StyledIcon type="idcard" />,
+    icon: <StyledIcon type="idcard"/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['mobile', 'api'],
@@ -109,10 +113,10 @@ const data: Experience[] = [
   },
   {
     name: 'BL Stream',
-    date: { from: [2010, 10], to: [2012, 7] },
+    date: {from: '2010.10', to: '2012.07'},
     description:
       'Implementation of projects based on the Android platform and J2EE in Java and jQuery, CSS.',
-    icon: <StyledIcon type="idcard" />,
+    icon: <StyledIcon type="idcard"/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web', 'mobile'],
@@ -122,9 +126,9 @@ const data: Experience[] = [
   },
   {
     name: 'Magnetic Point',
-    date: { from: [2008, 7], to: [2010, 10] },
+    date: {from: '2008.07', to: '2010.10'},
     description: 'CMS system development for websites based on Zend Framework in PHP.',
-    icon: <StyledIcon type="idcard" />,
+    icon: <StyledIcon type="idcard"/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web'],
@@ -134,9 +138,9 @@ const data: Experience[] = [
   },
   {
     name: 'and many others...',
-    date: { from: [2006, 10], to: [2008, 7] },
+    date: {from: '2006.10', to: '2008.07'},
     description: '',
-    icon: <StyledIcon type="bug" />,
+    icon: <StyledIcon type="bug"/>,
     tags: {},
   },
 ];
@@ -145,7 +149,7 @@ const Experiences = () => (
   <>
     <Divider dashed>Timeline</Divider>
     <Timeline>
-      {data.map(({ name, description, icon, tags, date: { from, to } }) => (
+      {data.map(({name, description, icon, tags, date: {from, to}}) => (
         <StyledTimelineItem key={name} dot={icon} color="#ffffff">
           <Title>{name}</Title>
           <Date>
