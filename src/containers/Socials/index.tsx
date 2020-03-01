@@ -1,7 +1,12 @@
-import { Icon, List } from 'antd';
-import { StackOverflow } from 'components';
-import React, { ReactNode } from 'react';
-import { styled } from 'utils';
+import {List} from 'antd';
+import {StackOverflow} from 'components';
+import React, {ReactNode} from 'react';
+import {styled} from 'utils';
+import GithubOutlined from "@ant-design/icons/GithubOutlined";
+import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
+import MailOutlined from "@ant-design/icons/MailOutlined";
+import TwitterOutlined from "@ant-design/icons/TwitterOutlined";
+import Icon from '@ant-design/icons';
 
 interface Social {
   name: string;
@@ -20,7 +25,7 @@ const StyledListItem = styled(List.Item)`
   }
 `;
 
-const StyledIcon = styled(Icon)`
+const IconWrapper = styled.div`
   font-size: 2rem;
   padding-right: 1rem;
 `;
@@ -54,35 +59,35 @@ const data: Social[] = [
     alias: '@hsz',
     description: 'OpenSource projects - private and contributed',
     url: 'https://github.com/hsz',
-    icon: <StyledIcon type="github" />,
+    icon: <GithubOutlined/>,
   },
   {
     name: 'StackOverflow',
     alias: 'hsz',
     description: '125k+ reputation with 500+ badges',
     url: 'https://stackoverflow.com/users/223386/hsz',
-    icon: <StyledIcon component={StackOverflow} />,
+    icon: <Icon component={StackOverflow} />,
   },
   {
     name: 'LinkedIn',
     alias: 'chrzanowski',
     description: 'Business oriented social network',
     url: 'https://www.linkedin.com/in/chrzanowski/',
-    icon: <StyledIcon type="linkedin" />,
+    icon: <LinkedinOutlined/>,
   },
   {
     name: 'Twitter',
     alias: '@hszanowski',
     description: 'Follow me!',
     url: 'https://twitter.com/hszanowski',
-    icon: <StyledIcon type="twitter" />,
+    icon: <TwitterOutlined/>,
   },
   {
     name: 'E-mail',
     alias: 'jakub@hsz.mobi',
     description: 'Feel free to mail me',
     url: 'mailto:jakub@hsz.mobi',
-    icon: <StyledIcon type="mail" />,
+    icon: <MailOutlined/>,
   },
 ];
 
@@ -93,7 +98,7 @@ const Socials = () => (
     renderItem={item => (
       <StyledListItem key={item.name}>
         <Content href={item.url}>
-          {item.icon}
+          <IconWrapper>{item.icon}</IconWrapper>
           <div>
             <strong>{item.name}</strong>
             <small>{item.alias}</small>

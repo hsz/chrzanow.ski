@@ -9,10 +9,11 @@
     "deploy": "git-directory-deploy --directory build/"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.0.2",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@ibm/type": "^0.5.4",
-    "antd": "^3.26.12",
+    "antd": "^4.0.0",
     "dayjs": "^1.8.21",
     "facepaint": "^1.2.1",
     "react": "^16.13.0",
@@ -21,7 +22,7 @@
   },
   "devDependencies": {
     "@types/facepaint": "^1.2.1",
-    "@types/node": "^12.12.29",
+    "@types/node": "^13.7.7",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "babel-plugin-emotion": "^10.0.28",

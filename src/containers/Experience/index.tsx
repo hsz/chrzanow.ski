@@ -130,7 +130,7 @@ const Experience = () => {
   return (
     <>
       <Divider>Experience</Divider>
-      <Row type="flex">
+      <Row>
         <Col span={4}>{keyword}</Col>
         <Col span={20}>
           <Progress

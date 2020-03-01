@@ -1,11 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { Divider, List, Icon, Tag } from 'antd';
-import { Colors } from 'utils';
-
-interface IconTextProps {
-  type: string;
-  text: string;
-}
+import React from 'react';
+import {Divider, List, Tag} from 'antd';
+import {Colors} from 'utils';
+import StarOutlined from '@ant-design/icons/StarOutlined';
 
 interface Project {
   name: string;
@@ -14,13 +10,6 @@ interface Project {
   stars: string;
   tags: string[];
 }
-
-const IconText: FunctionComponent<IconTextProps> = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
 
 const data: Project[] = [
   {
@@ -71,11 +60,14 @@ const Projects = () => (
       itemLayout="vertical"
       size="large"
       dataSource={data}
-      renderItem={({ name, description, url, stars, tags }) => (
+      renderItem={({name, description, url, stars, tags}) => (
         <List.Item
           key={name}
           actions={[
-            <IconText type="star-o" text={stars} />,
+            <span>
+              <StarOutlined style={{marginRight: 8}}/>
+              {stars}
+            </span>,
             <div>
               {tags.map(tag => (
                 <Tag key={tag} color={Colors.blue}>
@@ -85,7 +77,7 @@ const Projects = () => (
             </div>,
           ]}
         >
-          <List.Item.Meta title={<a href={url}>{name}</a>} description={description} />
+          <List.Item.Meta title={<a href={url}>{name}</a>} description={description}/>
         </List.Item>
       )}
     />

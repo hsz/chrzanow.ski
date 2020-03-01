@@ -1,9 +1,12 @@
-import {Divider, Icon, Tag, Timeline} from 'antd';
+import {Divider, Tag, Timeline} from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React, {ReactNode} from 'react';
 import {Colors, styled} from 'utils';
+import BugOutlined from "@ant-design/icons/BugOutlined";
+import IdcardOutlined from "@ant-design/icons/IdcardOutlined";
+import LoadingOutlined from "@ant-design/icons/LoadingOutlined";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(relativeTime);
@@ -34,9 +37,9 @@ const StyledTimelineItem = styled(Timeline.Item)`
   }
 `;
 
-const StyledIcon = styled(Icon)`
-  font-size: 1.5rem;
-`;
+// const StyledIcon = styled(Icon)`
+//   font-size: 1.5rem;
+// `;
 
 const Title = styled.span`
   font-weight: bold;
@@ -66,7 +69,7 @@ const data: Experience[] = [
     name: 'Meelogic',
     date: {from: '2014.07'},
     description: 'Web and Android development. Technical leader, architect and recruiter.',
-    icon: <StyledIcon type="loading" spin/>,
+    icon: <LoadingOutlined/>,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
@@ -78,7 +81,7 @@ const data: Experience[] = [
     name: 'HSZ',
     date: {from: '2013.02'},
     description: 'Owner, freelancer, JetBrains plugins development.',
-    icon: <StyledIcon type="loading" spin/>,
+    icon: <LoadingOutlined/>,
     tags: {
       [Colors.blue]: ['owner', 'developer'],
       [Colors.yellow]: ['web', 'raspberry pi', 'security', 'aws', 'api'],
@@ -91,7 +94,7 @@ const data: Experience[] = [
     date: {from: '2012.11', to: '2014.06'},
     description:
       'PM, Technical leader. Websites and internal applications development for managing the company.',
-    icon: <StyledIcon type="idcard"/>,
+    icon: <IdcardOutlined/>,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web'],
@@ -103,7 +106,7 @@ const data: Experience[] = [
     name: 'SB Betting Software',
     date: {from: '2012.07', to: '2012.10'},
     description: 'Planning and development of Android applications with WebServices in Java.',
-    icon: <StyledIcon type="idcard"/>,
+    icon: <IdcardOutlined/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['mobile', 'api'],
@@ -116,7 +119,7 @@ const data: Experience[] = [
     date: {from: '2010.10', to: '2012.07'},
     description:
       'Implementation of projects based on the Android platform and J2EE in Java and jQuery, CSS.',
-    icon: <StyledIcon type="idcard"/>,
+    icon: <IdcardOutlined/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web', 'mobile'],
@@ -128,7 +131,7 @@ const data: Experience[] = [
     name: 'Magnetic Point',
     date: {from: '2008.07', to: '2010.10'},
     description: 'CMS system development for websites based on Zend Framework in PHP.',
-    icon: <StyledIcon type="idcard"/>,
+    icon: <IdcardOutlined/>,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web'],
@@ -140,7 +143,7 @@ const data: Experience[] = [
     name: 'and many others...',
     date: {from: '2006.10', to: '2008.07'},
     description: '',
-    icon: <StyledIcon type="bug"/>,
+    icon: <BugOutlined/>,
     tags: {},
   },
 ];

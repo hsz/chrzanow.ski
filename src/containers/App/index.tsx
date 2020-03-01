@@ -15,7 +15,7 @@ const Wrapper = styled.main`
 
 const StyledSection = (Component: FunctionComponent, opacity = 0) =>
   styled(({ className }) => (
-    <Row className={className} type="flex" justify="space-around">
+    <Row className={className} justify="space-around">
       <Col xs={24} sm={12}>
         <Component />
       </Col>
