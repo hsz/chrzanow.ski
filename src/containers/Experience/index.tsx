@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Divider, Progress, Row, Col } from 'antd';
+import { Col, Divider, Progress, Row } from 'antd';
+import React, { useEffect, useState } from 'react';
 
 const keywords = [
   'javascript',

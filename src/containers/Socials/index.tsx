@@ -1,12 +1,13 @@
-import {List} from 'antd';
-import {StackOverflow} from 'components';
-import React, {ReactNode} from 'react';
-import {styled} from 'utils';
-import GithubOutlined from "@ant-design/icons/GithubOutlined";
-import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
-import MailOutlined from "@ant-design/icons/MailOutlined";
-import TwitterOutlined from "@ant-design/icons/TwitterOutlined";
-import Icon from '@ant-design/icons';
+import Icon, {
+  GithubOutlined,
+  LinkedinOutlined,
+  MailOutlined,
+  TwitterOutlined,
+} from '@ant-design/icons';
+import { List } from 'antd';
+import { StackOverflow } from 'components';
+import React, { ReactNode } from 'react';
+import { styled } from 'utils';
 
 interface Social {
   name: string;
@@ -59,7 +60,7 @@ const data: Social[] = [
     alias: '@hsz',
     description: 'OpenSource projects - private and contributed',
     url: 'https://github.com/hsz',
-    icon: <GithubOutlined/>,
+    icon: <GithubOutlined />,
   },
   {
     name: 'StackOverflow',
@@ -73,21 +74,21 @@ const data: Social[] = [
     alias: 'chrzanowski',
     description: 'Business oriented social network',
     url: 'https://www.linkedin.com/in/chrzanowski/',
-    icon: <LinkedinOutlined/>,
+    icon: <LinkedinOutlined />,
   },
   {
     name: 'Twitter',
     alias: '@hszanowski',
     description: 'Follow me!',
     url: 'https://twitter.com/hszanowski',
-    icon: <TwitterOutlined/>,
+    icon: <TwitterOutlined />,
   },
   {
     name: 'E-mail',
     alias: 'jakub@hsz.mobi',
     description: 'Feel free to mail me',
     url: 'mailto:jakub@hsz.mobi',
-    icon: <MailOutlined/>,
+    icon: <MailOutlined />,
   },
 ];
 

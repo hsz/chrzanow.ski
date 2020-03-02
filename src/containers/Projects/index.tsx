@@ -1,7 +1,7 @@
+import { StarOutlined } from '@ant-design/icons';
+import { Divider, List, Tag } from 'antd';
 import React from 'react';
-import {Divider, List, Tag} from 'antd';
-import {Colors} from 'utils';
-import StarOutlined from '@ant-design/icons/StarOutlined';
+import { Colors } from 'utils';
 
 interface Project {
   name: string;
@@ -60,12 +60,12 @@ const Projects = () => (
       itemLayout="vertical"
       size="large"
       dataSource={data}
-      renderItem={({name, description, url, stars, tags}) => (
+      renderItem={({ name, description, url, stars, tags }) => (
         <List.Item
           key={name}
           actions={[
             <span>
-              <StarOutlined style={{marginRight: 8}}/>
+              <StarOutlined style={{ marginRight: 8 }} />
               {stars}
             </span>,
             <div>
@@ -77,7 +77,7 @@ const Projects = () => (
             </div>,
           ]}
         >
-          <List.Item.Meta title={<a href={url}>{name}</a>} description={description}/>
+          <List.Item.Meta title={<a href={url}>{name}</a>} description={description} />
         </List.Item>
       )}
     />
