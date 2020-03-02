@@ -1,1 +1,1 @@
-# hsz.mobi
+# chrzanow.ski

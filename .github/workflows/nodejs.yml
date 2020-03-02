@@ -16,4 +16,4 @@ jobs:
         BRANCH: gh-pages
         FOLDER: build
         BUILD_SCRIPT: npm install && npm run build
-        CNAME: hsz.mobi
+        CNAME: chrzanow.ski
