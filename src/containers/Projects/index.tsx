@@ -6,7 +6,7 @@ import { Colors } from 'utils';
 interface Project {
   name: string;
   description: string;
-  url: string;
+  url?: string;
   stars: string;
   tags: string[];
 }
@@ -15,10 +15,21 @@ const data: Project[] = [
   {
     name: '.ignore IntelliJ Plugin',
     description:
-      '.ignore plugin for JetBrains IDEs (IntelliJ, PhpStorm, PyCharm, ...) that supports dot-ignore files (.gitignore, .npmignore, ...). Plugin has Over 7M downloads (2nd place in Top Downloads).',
+      '.ignore plugin for JetBrains IDEs (IntelliJ, PhpStorm, PyCharm, ...) that supports dot-ignore files ' +
+      '(.gitignore, .npmignore, ...). Plugin has Over 7M downloads (2nd place in Top Downloads).',
     url: 'https://github.com/JetBrains/idea-gitignore',
     stars: '1k',
     tags: ['intellij', 'java'],
+  },
+  {
+    name: 'RaspberryPi project for managing the GoPro cameras during drive',
+    description: 'Complex system for integration with car’s onboard server for triggering the GoPro cameras ' +
+      'shutters depending on the odometer or GPS location. Development of NodeJS application for contacting and ' +
+      'triggering GoPros shutters over multiple Wi-Fi adapters at the same time on electrical impulse from the ' +
+      'onboard computer connected with RS232.',
+    url: undefined,
+    stars: 'private',
+    tags: ['nodejs', 'raspberrypi', 'low-level'],
   },
   {
     name: 'webpack-nodesecurity-plugin',
@@ -77,7 +88,7 @@ const Projects = () => (
             </div>,
           ]}
         >
-          <List.Item.Meta title={<a href={url}>{name}</a>} description={description} />
+          <List.Item.Meta title={url ? <a href={url}>{name}</a> : name} description={description} />
         </List.Item>
       )}
     />

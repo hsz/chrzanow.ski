@@ -85,9 +85,9 @@ const data: Social[] = [
   },
   {
     name: 'E-mail',
-    alias: 'jakub@hsz.mobi',
+    alias: 'jakub@chrzanow.ski',
     description: 'Feel free to mail me',
-    url: 'mailto:jakub@hsz.mobi',
+    url: 'mailto:jakub@chrzanow.ski',
     icon: <MailOutlined />,
   },
 ];

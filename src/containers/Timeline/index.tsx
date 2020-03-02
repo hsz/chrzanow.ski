@@ -35,9 +35,9 @@ const StyledTimelineItem = styled(Timeline.Item)`
   }
 `;
 
-// const StyledIcon = styled(Icon)`
-//   font-size: 1.5rem;
-// `;
+const IconWrapper = styled.span`
+  font-size: 1.5rem;
+`;
 
 const Title = styled.span`
   font-weight: bold;
@@ -64,15 +64,13 @@ const Tags = styled.div`
 
 const data: Experience[] = [
   {
-    name: 'Meelogic',
-    date: { from: '2014.07' },
-    description: 'Web and Android development. Technical leader, architect and recruiter.',
+    name: 'JetBrains',
+    date: { from: '2020.01' },
+    description: 'Developer Advocate',
     icon: <LoadingOutlined />,
     tags: {
-      [Colors.blue]: ['pm', 'tech lead', 'developer'],
-      [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
-      [Colors.green]: ['nodejs', 'react', 'typescript', 'php', 'sql', 'java', 'android'],
-      [Colors.orange]: ['aws', 'jira', 'git', 'jenkins'],
+      [Colors.blue]: ['🥑'],
+      [Colors.green]: ['java', 'kotlin'],
     },
   },
   {
@@ -85,6 +83,18 @@ const data: Experience[] = [
       [Colors.yellow]: ['web', 'raspberry pi', 'security', 'aws', 'api'],
       [Colors.green]: ['nodejs', 'react', 'sql', 'java', 'kotlin', 'symfony2'],
       [Colors.orange]: ['git', 'travis', 'aws'],
+    },
+  },
+  {
+    name: 'Meelogic',
+    date: { from: '2014.07', to: '2020.01' },
+    description: 'Web and Android development. Technical leader, architect and recruiter.',
+    icon: <IdcardOutlined />,
+    tags: {
+      [Colors.blue]: ['pm', 'tech lead', 'developer'],
+      [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
+      [Colors.green]: ['nodejs', 'react', 'typescript', 'php', 'sql', 'java', 'android'],
+      [Colors.orange]: ['aws', 'jira', 'git', 'jenkins'],
     },
   },
   {
@@ -151,7 +161,7 @@ const Experiences = () => (
     <Divider dashed>Timeline</Divider>
     <Timeline>
       {data.map(({ name, description, icon, tags, date: { from, to } }) => (
-        <StyledTimelineItem key={name} dot={icon} color="#ffffff">
+        <StyledTimelineItem key={name} dot={<IconWrapper>{icon}</IconWrapper>} color="#ffffff">
           <Title>{name}</Title>
           <Date>
             {to ? `for ${duration(from, to)}, ${ago(from)}` : `since ${ago(from, false)}`}
