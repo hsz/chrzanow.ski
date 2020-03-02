@@ -24,10 +24,21 @@ const Name = styled.h1`
   })};
 `;
 
+const Position = styled.h2`
+  margin: 0 auto;
+  text-align: center;
+    opacity: 0.5;
+
+  ${mq({
+    fontSize: ['0.75rem', '1rem'],
+  })};
+`;
+
 const Header = () => (
   <Section>
     <Logo src={logo} alt="hsz" />
     <Name>Jakub Chrzanowski</Name>
+    <Position>Developer Advocate @JetBrains</Position>
   </Section>
 );
 

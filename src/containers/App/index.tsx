@@ -1,5 +1,5 @@
 import { BackTop, Col, Row } from 'antd';
-import { Experience, Header, Projects, Socials, Timeline } from 'containers';
+import { Header, Projects, Socials, Timeline } from 'containers';
 import React, { FunctionComponent } from 'react';
 import { styled } from 'utils';
 import background from './assets/background.jpg';
@@ -27,9 +27,8 @@ const StyledSection = (Component: FunctionComponent, opacity = 0) =>
   `;
 
 const StyledSocials = StyledSection(Socials);
-const StyledProjects = StyledSection(Projects, 0.25);
-const StyledTimeline = StyledSection(Timeline, 0.5);
-const StyledExperience = StyledSection(Experience, 0.75);
+const StyledTimeline = StyledSection(Timeline, 0.25);
+const StyledProjects = StyledSection(Projects, 0.5);
 const StyledBackTop = styled(BackTop)`
   .ant-back-top-content {
     background-color: rgba(255, 255, 255, 0.25);
@@ -40,9 +39,8 @@ const App = () => (
   <Wrapper className="ibm">
     <Header />
     <StyledSocials />
-    <StyledProjects />
     <StyledTimeline />
-    <StyledExperience />
+    <StyledProjects />
     <StyledBackTop />
   </Wrapper>
 );
