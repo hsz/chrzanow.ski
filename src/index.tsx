@@ -11,6 +11,10 @@ const globalStyles = css`
   html {
     height: 100%;
   }
+  
+  .ibm {
+    letter-spacing: 1px;
+  }
 `;
 
 const rootElement = document.getElementById('root');
