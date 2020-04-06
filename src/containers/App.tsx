@@ -2,7 +2,6 @@ import { BackTop, Col, Row } from 'antd';
 import { Header, Projects, Socials, Timeline } from 'containers';
 import React, { FunctionComponent } from 'react';
 import { styled } from 'utils';
-import background from './assets/background.jpg';
 
 const Wrapper = styled.main`
   height: 100%;
@@ -10,7 +9,7 @@ const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   background-size: cover;
-  background: url(${background}) fixed top;
+  background: url('/background.jpg') fixed top;
 `;
 
 const StyledSection = (Component: FunctionComponent, opacity = 0) =>

@@ -15,8 +15,9 @@ interface Experience {
     from: string;
     to?: string;
   };
-  description: string;
-  icon: ReactNode;
+  ongoing?: boolean;
+  icon?: ReactNode;
+  description?: string;
   tags: { [key in Colors]?: string[] };
 }
 
@@ -66,21 +67,22 @@ const data: Experience[] = [
   {
     name: 'JetBrains',
     date: { from: '2020.01' },
+    ongoing: true,
     description: 'Developer Advocate',
-    icon: <LoadingOutlined />,
     tags: {
       [Colors.blue]: ['🥑'],
-      [Colors.green]: ['java', 'kotlin'],
+      [Colors.green]: ['java', 'kotlin', 'terraform'],
+      [Colors.orange]: ['git', 'teamcity', 'aws'],
     },
   },
   {
     name: 'HSZ',
     date: { from: '2013.02' },
     description: 'Owner, freelancer, JetBrains plugins development.',
-    icon: <LoadingOutlined />,
+    ongoing: true,
     tags: {
       [Colors.blue]: ['owner', 'developer'],
-      [Colors.yellow]: ['web', 'raspberry pi', 'security', 'aws', 'api'],
+      [Colors.yellow]: ['web', 'raspberry pi', 'security', 'api'],
       [Colors.green]: ['nodejs', 'react', 'sql', 'java', 'kotlin', 'symfony2'],
       [Colors.orange]: ['git', 'travis', 'aws'],
     },
@@ -89,7 +91,6 @@ const data: Experience[] = [
     name: 'Meelogic',
     date: { from: '2014.07', to: '2020.01' },
     description: 'Web and Android development. Technical leader, architect and recruiter.',
-    icon: <IdcardOutlined />,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
@@ -102,7 +103,6 @@ const data: Experience[] = [
     date: { from: '2012.11', to: '2014.06' },
     description:
       'PM, Technical leader. Websites and internal applications development for managing the company.',
-    icon: <IdcardOutlined />,
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
       [Colors.yellow]: ['web'],
@@ -114,7 +114,6 @@ const data: Experience[] = [
     name: 'SB Betting Software',
     date: { from: '2012.07', to: '2012.10' },
     description: 'Planning and development of Android applications with WebServices in Java.',
-    icon: <IdcardOutlined />,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['mobile', 'api'],
@@ -127,7 +126,6 @@ const data: Experience[] = [
     date: { from: '2010.10', to: '2012.07' },
     description:
       'Implementation of projects based on the Android platform and J2EE in Java and jQuery, CSS.',
-    icon: <IdcardOutlined />,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web', 'mobile'],
@@ -139,7 +137,6 @@ const data: Experience[] = [
     name: 'Magnetic Point',
     date: { from: '2008.07', to: '2010.10' },
     description: 'CMS system development for websites based on Zend Framework in PHP.',
-    icon: <IdcardOutlined />,
     tags: {
       [Colors.blue]: ['developer'],
       [Colors.yellow]: ['web'],
@@ -150,7 +147,6 @@ const data: Experience[] = [
   {
     name: 'and many others...',
     date: { from: '2006.10', to: '2008.07' },
-    description: '',
     icon: <BugOutlined />,
     tags: {},
   },
@@ -160,16 +156,24 @@ const Experiences = () => (
   <>
     <Divider dashed>Timeline</Divider>
     <Timeline>
-      {data.map(({ name, description, icon, tags, date: { from, to } }) => (
-        <StyledTimelineItem key={name} dot={<IconWrapper>{icon}</IconWrapper>} color="#ffffff">
+      {data.map(({ name, description, ongoing, icon, tags, date: { from, to } }) => (
+        <StyledTimelineItem
+          key={name}
+          dot={
+            <IconWrapper>
+              {icon || (ongoing ? <LoadingOutlined /> : <IdcardOutlined />)}
+            </IconWrapper>
+          }
+          color="#ffffff"
+        >
           <Title>{name}</Title>
           <Date>
             {to ? `for ${duration(from, to)}, ${ago(from)}` : `since ${ago(from, false)}`}
           </Date>
-          <Description>{description}</Description>
-          {(Object.keys(tags) as Colors[]).map(color => (
+          {description && <Description>{description}</Description>}
+          {(Object.keys(tags) as Colors[]).map((color) => (
             <Tags key={color}>
-              {(tags[color] || []).map(tag => (
+              {(tags[color] || []).map((tag) => (
                 <Tag color={color} key={tag}>
                   {tag}
                 </Tag>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { mq, styled } from 'utils';
-import logo from './assets/logo.png';
 
 const Section = styled.section(
   mq({
@@ -36,7 +35,7 @@ const Position = styled.h2`
 
 const Header = () => (
   <Section>
-    <Logo src={logo} alt="hsz" />
+    <Logo src="/logo.png" alt="hsz" />
     <Name>Jakub Chrzanowski</Name>
     <Position>Developer Advocate @JetBrains</Position>
   </Section>
