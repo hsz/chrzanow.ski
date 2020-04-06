@@ -96,7 +96,7 @@ const Socials = () => (
   <List
     dataSource={data}
     itemLayout="horizontal"
-    renderItem={item => (
+    renderItem={(item) => (
       <StyledListItem key={item.name}>
         <Content href={item.url}>
           <IconWrapper>{item.icon}</IconWrapper>

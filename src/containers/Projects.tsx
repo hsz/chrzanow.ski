@@ -23,7 +23,8 @@ const data: Project[] = [
   },
   {
     name: 'RaspberryPi project for managing the GoPro cameras during drive',
-    description: 'Complex system for integration with car’s onboard server for triggering the GoPro cameras ' +
+    description:
+      'Complex system for integration with car’s onboard server for triggering the GoPro cameras ' +
       'shutters depending on the odometer or GPS location. Development of NodeJS application for contacting and ' +
       'triggering GoPros shutters over multiple Wi-Fi adapters at the same time on electrical impulse from the ' +
       'onboard computer connected with RS232.',
@@ -80,7 +81,7 @@ const Projects = () => (
               {stars}
             </span>,
             <div>
-              {tags.map(tag => (
+              {tags.map((tag) => (
                 <Tag key={tag} color={Colors.blue}>
                   {tag}
                 </Tag>

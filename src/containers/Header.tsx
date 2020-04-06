@@ -26,7 +26,7 @@ const Name = styled.h1`
 const Position = styled.h2`
   margin: 0 auto;
   text-align: center;
-    opacity: 0.5;
+  opacity: 0.5;
 
   ${mq({
     fontSize: ['0.75rem', '1rem'],

@@ -12,4 +12,4 @@ export enum Colors {
 }
 
 export const breakpoints = [576, 992, 1200, 1300];
-export const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`));
+export const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
