@@ -65,7 +65,7 @@ const data: Social[] = [
   {
     name: 'StackOverflow',
     alias: 'hsz',
-    description: '125k+ reputation with 500+ badges',
+    description: '125k+ reputation with 550+ badges',
     url: 'https://stackoverflow.com/users/223386/hsz',
     icon: <Icon component={StackOverflow} />,
   },
