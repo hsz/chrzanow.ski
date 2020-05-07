@@ -40,6 +40,9 @@
     "typescript": "^3.8.3",
     "webpack-bundle-analyzer": "^3.7.0"
   },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu"]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
