@@ -12,15 +12,17 @@ module.exports = override(
     },
   ]),
   addLessLoader({
-    javascriptEnabled: true,
-    modifyVars: {
-      // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-      '@component-background': 'transparent',
-      '@heading-color': 'fade(#fff, 95%)',
-      '@text-color': 'fade(#fff, 85%)',
-      '@text-color-secondary': 'fade(#fff, 65%)',
-      '@border-color-base': 'fade(#fff, 50%)',
-      '@border-color-split': 'fade(#fff, 20%)',
+    lessOptions: {
+      javascriptEnabled: true,
+      modifyVars: {
+        // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+        '@component-background': 'transparent',
+        '@heading-color': 'fade(#fff, 95%)',
+        '@text-color': 'fade(#fff, 85%)',
+        '@text-color-secondary': 'fade(#fff, 65%)',
+        '@border-color-base': 'fade(#fff, 50%)',
+        '@border-color-split': 'fade(#fff, 20%)',
+      },
     },
   }),
   config => ({
