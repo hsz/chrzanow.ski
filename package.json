@@ -43,7 +43,6 @@
     "crawl": false,
     "inlineCss": true,
     "removeScriptTags": true,
-    "removeStyleTags": true,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox",
