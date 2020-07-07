@@ -17,8 +17,6 @@ jobs:
 
       - name: Install Puppeteer
         uses: ianwalter/puppeteer@3.0.0
-        with:
-          args: npm
 
       - name: Install and Build
         run: |
