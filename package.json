@@ -45,7 +45,8 @@
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-gpu"
-    ]
+    ],
+    "puppeteerExecutablePath": "google-chrome-stable"
   },
   "browserslist": {
     "production": [
