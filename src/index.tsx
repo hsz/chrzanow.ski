@@ -1,5 +1,4 @@
 import { Global } from '@emotion/core';
-import '@ibm/type/css/ibm-type.min.css';
 import App from 'containers/App';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
@@ -10,9 +9,7 @@ const globalStyles = css`
   body,
   html {
     height: 100%;
-  }
-
-  .ibm {
+    font-family: 'IBM Plex Sans', sans-serif;
     letter-spacing: 1px;
   }
 `;

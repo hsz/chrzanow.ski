@@ -9,7 +9,7 @@ const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   background-size: cover;
-  background: url('/background.jpg') fixed top;
+  background: url('/background.webp') fixed top;
 `;
 
 const StyledSection = (Component: FunctionComponent, opacity = 0) =>
@@ -35,7 +35,7 @@ const StyledBackTop = styled(BackTop)`
 `;
 
 const App = () => (
-  <Wrapper className="ibm">
+  <Wrapper>
     <Header />
     <StyledSocials />
     <StyledTimeline />

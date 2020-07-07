@@ -82,7 +82,7 @@ const data: Experience[] = [
     ongoing: true,
     tags: {
       [Colors.blue]: ['owner', 'developer'],
-      [Colors.yellow]: ['web', 'raspberry pi', 'security', 'api'],
+      [Colors.red]: ['web', 'raspberry pi', 'security', 'api'],
       [Colors.green]: ['nodejs', 'react', 'sql', 'java', 'kotlin', 'symfony2'],
       [Colors.orange]: ['git', 'travis', 'aws'],
     },
@@ -93,7 +93,7 @@ const data: Experience[] = [
     description: 'Web and Android development. Technical leader, architect and recruiter.',
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
-      [Colors.yellow]: ['web', 'mobile', 'security', 'api'],
+      [Colors.red]: ['web', 'mobile', 'security', 'api'],
       [Colors.green]: ['nodejs', 'react', 'typescript', 'php', 'sql', 'java', 'android'],
       [Colors.orange]: ['aws', 'jira', 'git', 'jenkins'],
     },
@@ -105,7 +105,7 @@ const data: Experience[] = [
       'PM, Technical leader. Websites and internal applications development for managing the company.',
     tags: {
       [Colors.blue]: ['pm', 'tech lead', 'developer'],
-      [Colors.yellow]: ['web'],
+      [Colors.red]: ['web'],
       [Colors.green]: ['php', 'symfony2', 'sass'],
       [Colors.orange]: ['git', 'wordpress'],
     },
@@ -116,7 +116,7 @@ const data: Experience[] = [
     description: 'Planning and development of Android applications with WebServices in Java.',
     tags: {
       [Colors.blue]: ['developer'],
-      [Colors.yellow]: ['mobile', 'api'],
+      [Colors.red]: ['mobile', 'api'],
       [Colors.green]: ['java', 'j2ee'],
       [Colors.orange]: ['git'],
     },
@@ -128,7 +128,7 @@ const data: Experience[] = [
       'Implementation of projects based on the Android platform and J2EE in Java and jQuery, CSS.',
     tags: {
       [Colors.blue]: ['developer'],
-      [Colors.yellow]: ['web', 'mobile'],
+      [Colors.red]: ['web', 'mobile'],
       [Colors.green]: ['java', 'j2ee', 'android'],
       [Colors.orange]: ['git', 'svn'],
     },
@@ -139,7 +139,7 @@ const data: Experience[] = [
     description: 'CMS system development for websites based on Zend Framework in PHP.',
     tags: {
       [Colors.blue]: ['developer'],
-      [Colors.yellow]: ['web'],
+      [Colors.red]: ['web'],
       [Colors.green]: ['php', 'zend framework', 'jquery'],
       [Colors.orange]: ['svn'],
     },

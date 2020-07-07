@@ -6,8 +6,8 @@ export { css } from '@emotion/core';
 export enum Colors {
   black = '#000',
   blue = '#0b3e50',
-  yellow = '#9e9c18',
-  green = '#2b9e28',
+  red = '#500c0c',
+  green = '#1f721d',
   orange = '#9e5d26',
 }
 

@@ -35,7 +35,7 @@ const Position = styled.h2`
 
 const Header = () => (
   <Section>
-    <Logo src="/logo.png" alt="hsz" />
+    <Logo src="/logo.webp" alt="hsz" />
     <Name>Jakub Chrzanowski</Name>
     <Position>Developer Advocate @JetBrains</Position>
   </Section>

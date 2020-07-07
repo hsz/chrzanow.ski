@@ -14,7 +14,6 @@
     "@ant-design/icons": "^4.2.1",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@ibm/type": "^0.5.4",
     "antd": "^4.4.1",
     "dayjs": "^1.8.29",
     "facepaint": "^1.2.1",
@@ -41,6 +40,10 @@
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "reactSnap": {
+    "crawl": false,
+    "inlineCss": true,
+    "removeScriptTags": true,
+    "removeStyleTags": true,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox",
