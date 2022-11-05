@@ -1,0 +1,23 @@
+{
+  "subject": "acct:hsz@mas.to",
+  "aliases": [
+    "https://mas.to/@hsz",
+    "https://mas.to/users/hsz"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mas.to/@hsz"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mas.to/users/hsz"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://mas.to/authorize_interaction?uri={uri}"
+    }
+  ]
+}
